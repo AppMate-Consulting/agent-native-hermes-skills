@@ -1,8 +1,8 @@
-# efficient-fable
+# /efficient-fable
 
 Use Claude Fable where it is worth paying for judgment.
 
-`efficient-fable` helps a Fable-class model orchestrate codebase-heavy work
+`/efficient-fable` helps a Fable-class model orchestrate codebase-heavy work
 without spending premium tokens on every scan, log, browser run, and bounded
 edit. Fable keeps the hard calls: decomposition, architecture, product tradeoffs,
 synthesis, risk, and final review. Lighter agents do the repeatable heavy

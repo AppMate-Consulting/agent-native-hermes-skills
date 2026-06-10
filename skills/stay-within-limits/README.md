@@ -1,8 +1,8 @@
-# stay-within-limits
+# /stay-within-limits
 
 Keep long-running agent work inside model and account usage windows.
 
-`stay-within-limits` gives coding agents a lightweight budget loop for broad,
+`/stay-within-limits` gives coding agents a lightweight budget loop for broad,
 parallel, or multi-hour work. The agent checks current 5-hour and weekly usage,
 runs work in bounded waves, and pauses before it crosses the limit instead of
 burning through the last usable budget mid-task.

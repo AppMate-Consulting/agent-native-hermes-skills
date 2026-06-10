@@ -9,7 +9,7 @@ to your project, and let the model keep room to think.
 
 ## Skills
 
-### [`efficient-fable`](skills/efficient-fable/README.md)
+### [`/efficient-fable`](skills/efficient-fable/README.md)
 
 Use Claude Fable as the orchestrator, architect, synthesizer, and final judge
 while lighter agents handle token-heavy research, coding, testing, and log
@@ -18,7 +18,7 @@ reduction.
 Solves for expensive-model waste: Fable should spend tokens on judgment, not on
 reading every file, reducing every log, or manually running every browser check.
 
-### [`efficient-frontier`](skills/efficient-frontier/README.md)
+### [`/efficient-frontier`](skills/efficient-frontier/README.md)
 
 Apply the same orchestration pattern to any high-cost frontier model: preserve
 the expensive model for planning, tradeoffs, integration, validation strategy,
@@ -27,7 +27,7 @@ and final review; use cheaper agents for bounded heavy lifting.
 Solves for broad work that can be parallelized without asking the most expensive
 model to do every scan and every edit itself.
 
-### [`stay-within-limits`](skills/stay-within-limits/README.md)
+### [`/stay-within-limits`](skills/stay-within-limits/README.md)
 
 Check current 5-hour and weekly usage before substantial work and between
 parallel waves, then pause new execution at 95% until the active window is clear
@@ -37,7 +37,7 @@ Solves for long-running agent sessions that accidentally exhaust the current
 budget window mid-task instead of pausing cleanly and resuming with a
 self-contained plan.
 
-### [`visual-plan`](skills/visual-plan/README.md)
+### [`/visual-plan`](skills/visual-plan/README.md)
 
 Publish an Agent-Native Plan before risky or ambiguous implementation work, with
 inline diagrams, file maps, API/data blocks, open questions, comments, and
@@ -46,7 +46,7 @@ optional UI or prototype review surfaces.
 Solves for planning in chat when the work really needs a reviewable artifact the
 user can scan, comment on, and approve before code changes start.
 
-### [`visual-recap`](skills/visual-recap/README.md)
+### [`/visual-recap`](skills/visual-recap/README.md)
 
 Turn a branch, commit, or PR diff into a visual recap plan that explains what
 changed at a higher altitude than raw diff review.
@@ -54,7 +54,7 @@ changed at a higher altitude than raw diff review.
 Solves for large diffs that hide the important shape of the change: schema/API
 contracts, UI states, architecture moves, file footprint, and key review points.
 
-### [`quick-recap`](skills/quick-recap/README.md)
+### [`/quick-recap`](skills/quick-recap/README.md)
 
 Add a concise final status block convention so every completed response ends
 with a clear green, yellow, or red work-state signal.
@@ -98,7 +98,7 @@ npx skills add BuilderIO/skills --skill quick-recap
 
 ## Sync Agent Native Plan Skills
 
-`visual-plan` and `visual-recap` are copied from Agent Native. From this repo:
+`/visual-plan` and `/visual-recap` are copied from Agent Native. From this repo:
 
 ```sh
 npm run sync:agent-native-plan-skills

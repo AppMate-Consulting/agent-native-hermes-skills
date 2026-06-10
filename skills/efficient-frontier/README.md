@@ -1,9 +1,9 @@
-# efficient-frontier
+# /efficient-frontier
 
 Use any expensive frontier model as an orchestrator and reviewer, not as the
 default worker for every token-heavy pass.
 
-`efficient-frontier` is the model-agnostic version of `efficient-fable`. It
+`/efficient-frontier` is the model-agnostic version of `/efficient-fable`. It
 works for any high-cost model where the expensive part should be reserved for
 judgment, synthesis, integration, and final quality.
 

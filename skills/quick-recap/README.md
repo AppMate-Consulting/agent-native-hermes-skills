@@ -1,8 +1,8 @@
-# quick-recap
+# /quick-recap
 
 Make the agent's work state obvious at the end of every response.
 
-`quick-recap` adds a small red/yellow/green status footer convention. It answers
+`/quick-recap` adds a small red/yellow/green status footer convention. It answers
 the thing users otherwise have to infer from a long response: done, pending, or
 blocked.
 
@@ -24,6 +24,41 @@ work, or partial handoffs can make status hard to scan.
 - Green: the requested coding or work unit is finished.
 - Yellow: specific non-routine follow-up remains.
 - Red: the agent cannot continue without user input.
+
+## Output Examples
+
+Green means the work unit is done:
+
+```md
+Updated the docs and ran the relevant checks.
+
+---
+
+⠀
+🟢 Updated quick recap docs with output examples
+```
+
+Yellow means a specific non-routine item remains:
+
+```md
+I added the integration code, but the provider app still needs a webhook secret.
+
+---
+
+⠀
+🟡 Set PROVIDER_WEBHOOK_SECRET before testing webhooks
+```
+
+Red means the agent is blocked on user input:
+
+```md
+I cannot continue the deployment setup without the production API key.
+
+---
+
+⠀
+🔴 Need the production API key to continue
+```
 
 ## Install
 

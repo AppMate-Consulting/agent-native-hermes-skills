@@ -1,8 +1,8 @@
-# visual-recap
+# /visual-recap
 
 Turn an existing change into a structured review surface.
 
-`visual-recap` is the reverse of `visual-plan`: instead of planning a future
+`/visual-recap` is the reverse of `/visual-plan`: instead of planning a future
 change, it summarizes a diff, branch, commit, or PR after the work exists. The
 goal is to help reviewers understand the shape of a change before they dive into
 raw line-by-line diffs.

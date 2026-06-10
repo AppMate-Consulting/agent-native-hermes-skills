@@ -1,8 +1,8 @@
-# visual-plan
+# /visual-plan
 
 Publish a reviewable Agent-Native Plan before risky implementation work starts.
 
-`visual-plan` turns the plan an agent would normally write in chat into a
+`/visual-plan` turns the plan an agent would normally write in chat into a
 structured, interactive document. It can include inline diagrams, file trees,
 annotated code, API and data-model blocks, open questions, comments, and optional
 UI canvases or prototypes.
