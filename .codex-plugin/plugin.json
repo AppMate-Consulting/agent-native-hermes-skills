@@ -1,0 +1,27 @@
+{
+  "name": "builder-skills",
+  "version": "0.0.0",
+  "description": "Public Builder skills for efficient frontier-model orchestration, clear status recaps, and Agent-Native Plan workflows.",
+  "author": {
+    "name": "Builder.io",
+    "url": "https://www.builder.io"
+  },
+  "homepage": "https://github.com/BuilderIO/skills",
+  "license": "MIT",
+  "keywords": ["builder", "skills", "agent-workflows", "subagents"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Builder Skills",
+    "shortDescription": "Builder skills for efficient agent workflows.",
+    "longDescription": "A small public skill collection for efficient frontier-model orchestration, clear status recaps, and synced Agent-Native Plan workflows.",
+    "developerName": "Builder.io",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://github.com/BuilderIO/skills",
+    "defaultPrompt": [
+      "Use Builder Skills when a matching skill applies",
+      "Install the quick recap status convention",
+      "Use efficient Fable orchestration"
+    ]
+  }
+}

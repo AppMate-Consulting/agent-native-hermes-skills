@@ -1,0 +1,14 @@
+{
+  "name": "builder-skills",
+  "displayName": "Builder Skills",
+  "description": "Public Builder skills for efficient frontier-model orchestration, clear status recaps, and Agent-Native Plan workflows.",
+  "author": {
+    "name": "Builder.io",
+    "url": "https://www.builder.io"
+  },
+  "homepage": "https://github.com/BuilderIO/skills",
+  "repository": "https://github.com/BuilderIO/skills",
+  "license": "MIT",
+  "keywords": ["builder", "skills", "agent-workflows", "subagents"],
+  "skills": "./skills/"
+}

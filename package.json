@@ -1,0 +1,12 @@
+{
+  "name": "@builder.io/skills",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Public Builder skills for efficient frontier-model orchestration, clear status recaps, and Agent Native Plan workflows.",
+  "license": "MIT",
+  "scripts": {
+    "sync:agent-native-plan-skills": "node scripts/sync-agent-native-plan-skills.mjs",
+    "check": "node scripts/sync-agent-native-plan-skills.mjs --check"
+  }
+}
