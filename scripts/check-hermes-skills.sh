@@ -23,3 +23,13 @@ for skill_md in skills/*/SKILL.md; do
 done
 
 bash -n scripts/install-hermes-skills.sh
+python -m py_compile __init__.py agent_native_cli.py
+python - <<'PY'
+from pathlib import Path
+manifest = Path('plugin.yaml')
+text = manifest.read_text()
+for required in ['name: agent-native-hermes-skills', 'version:', 'description:']:
+    if required not in text:
+        raise SystemExit(f'plugin.yaml missing {required!r}')
+print('OK plugin.yaml')
+PY

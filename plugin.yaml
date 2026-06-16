@@ -1,0 +1,6 @@
+name: agent-native-hermes-skills
+version: "0.1.0"
+description: "Install and manage the AppMate Agent-Native skill set for Hermes, including optional Plan MCP setup."
+author: "AppMate Consulting"
+provides_tools: []
+provides_hooks: []

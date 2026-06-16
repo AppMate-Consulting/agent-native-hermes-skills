@@ -4,7 +4,32 @@ AppMate-maintained fork of [`BuilderIO/skills`](https://github.com/BuilderIO/ski
 
 The upstream skills are excellent agent workflow instructions. This fork keeps the useful planning and recap discipline, but documents the Hermes install path, Hermes MCP setup, and repo-owned local-files workflow we need for client/private work.
 
-## Recommended Hermes install
+## One-command Hermes setup
+
+This repo is also a Hermes plugin. Install and enable it once:
+
+```sh
+hermes plugins install AppMate-Consulting/agent-native-hermes-skills --enable
+```
+
+Then use the plugin CLI:
+
+```sh
+hermes agent-native setup              # install default skills
+hermes agent-native setup --with-mcp   # install skills + configure/test hosted Plan MCP
+hermes agent-native status             # show skills and MCP status
+```
+
+For private/client work, keep the hosted connector out of the path and use:
+
+```sh
+hermes agent-native setup --local-files
+export AGENT_NATIVE_PLANS_MODE=local-files
+```
+
+Restart the gateway or start a fresh CLI session after enabling the plugin so `hermes agent-native ...` is registered.
+
+## Manual Hermes install
 
 Install the skills directly from this fork:
 
