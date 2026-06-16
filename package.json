@@ -1,12 +1,13 @@
 {
-  "name": "@builder.io/skills",
-  "version": "0.0.0",
+  "name": "@appmate/agent-native-hermes-skills",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Public Builder skills for efficient frontier-model orchestration, clear status recaps, and Agent Native Plan workflows.",
+  "description": "AppMate fork of Builder skills adapted for Hermes Agent and Agent-Native Plan workflows.",
   "license": "MIT",
   "scripts": {
     "sync:agent-native-plan-skills": "node scripts/sync-agent-native-plan-skills.mjs",
-    "check": "node scripts/sync-agent-native-plan-skills.mjs --check"
+    "check:hermes": "bash scripts/check-hermes-skills.sh",
+    "check": "bash scripts/check-hermes-skills.sh"
   }
 }

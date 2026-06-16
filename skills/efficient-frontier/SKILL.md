@@ -1,12 +1,23 @@
 ---
 name: efficient-frontier
 description: Apply the same orchestration as `/efficient-fable` to any high-cost frontier model: delegate research, coding, and testing to cheaper subagents while keeping planning, synthesis, and final review with the expensive model.
+metadata:
+  hermes:
+    tags: [delegation, subagents, frontier-models, hermes]
 ---
 
 # Efficient Frontier
 
 Use the expensive frontier model where its marginal judgment matters. Push
 repeatable, bounded, or token-heavy work to cheaper/faster subagents.
+
+## Hermes Adaptation
+
+In Hermes, use the main model as the frontier orchestrator and `delegate_task`
+for bounded research, testing, log reduction, browser passes, and narrow code
+work. Use `enabled_toolsets` on delegated tasks so workers only receive the tools
+they need. Treat subagent reports as evidence: reopen high-risk files and rerun
+or spot-check the relevant command before claiming the work is done.
 
 ## Workflow
 

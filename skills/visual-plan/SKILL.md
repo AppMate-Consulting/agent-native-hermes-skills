@@ -6,6 +6,8 @@ description: >-
   useful.
 metadata:
   visibility: exported
+  hermes:
+    tags: [planning, visual-review, agent-native, hermes]
 ---
 
 # Agent-Native Plans
@@ -120,17 +122,20 @@ ownership, privacy, sharing, and branding needs.
 
 By default, create the plan via the Plan MCP connector. NEVER hand the plan over
 as inline chat content — no Markdown prose, ASCII sketch, table, or fenced
-wireframe. If the connector's tools are missing, do NOT fall back to inline
-output: the usual cause is a connector that did not finish connecting this
-session (it registers zero tools), not auth. Stop and give the user the exact
-restore step for their current client: in Codex/Codex Desktop run
-`npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --client codex`
-and start a new Codex session; in Claude Code run `/mcp` and choose
-Authenticate/Reconnect (or run the same reconnect command with
-`--client claude-code` and restart Claude). Auth is stored per client
-config/session, so one client's reconnect does not make another running client
-load tools. Never reinstall from scratch just to fix auth. Publish once the tool
-is reachable. Local-files privacy mode (after Tool Guidance) is the exception.
+wireframe. If the connector's tools are missing in Hermes, do NOT fall back to
+inline output: first verify the `plan` MCP server is configured and loaded:
+
+```bash
+hermes mcp add plan --url https://plan.agent-native.com/_agent-native/mcp --auth oauth
+hermes mcp test plan
+```
+
+Then start a fresh Hermes session or run `/reload-mcp`. Auth and MCP tool loading
+are per Hermes profile/session, so configure the same profile that runs the CLI,
+gateway, or desktop agent. Publish once the tool is reachable. Local-files
+privacy mode (after Tool Guidance) is the exception. Other clients can still use
+their native reconnect flows, but this fork's primary instructions are for
+Hermes.
 
 ## Core Workflow
 
@@ -414,24 +419,28 @@ review need.
 
 There are two ways into Plans.
 
-**Coding agent (CLI).** Install once with the Agent-Native CLI. The command
-installs the Plans skills, registers the hosted Plans MCP connector, and runs
-auth/setup for the selected local client(s) in the same step (a one-time browser
-sign-in at setup — this is intended), so the first tool call in that client does
-not hit an OAuth wall:
+**Hermes Agent.** Install the AppMate forked skills into the Hermes profile
+that will use them:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan
+hermes skills install AppMate-Consulting/agent-native-hermes-skills/skills/visual-plan --category agent-native --yes
+hermes skills install AppMate-Consulting/agent-native-hermes-skills/skills/visual-recap --category agent-native --yes
 ```
 
-After that, `/visual-plan` and `/visual-recap` are the two installed slash
-commands. The other planning modes (`create-ui-plan`, `create-prototype-plan`,
-`create-plan-design`, `create-visual-questions`) are MCP tools reachable from
-`/visual-plan`, not separate slash commands. Pass `--no-connect` to register
-the connector without authenticating, then run
-`npx @agent-native/core@latest connect https://plan.agent-native.com --client all`
-whenever you are ready, or choose a narrower `--client`. Auth and MCP tool
-loading are per client config/session.
+Then load them in the active session with `/reload-skills` or start a fresh
+session. Configure the hosted Plan connector only when hosted review is approved:
+
+```bash
+hermes mcp add plan --url https://plan.agent-native.com/_agent-native/mcp --auth oauth
+hermes mcp test plan
+```
+
+After that, run `/reload-mcp` or start a fresh session. `/visual-plan` and
+`/visual-recap` are the two installed slash commands. The other planning modes
+(`create-ui-plan`, `create-prototype-plan`, `create-plan-design`,
+`create-visual-questions`) are MCP tools reachable from `/visual-plan`, not
+separate slash commands. Auth and MCP tool loading are per Hermes profile and
+session.
 
 **Browser (people you share with).** Open the Plans editor and create & edit
 with no sign-up — you work as a guest. Sign in only when you want to save or
@@ -445,16 +454,22 @@ your repo as MDX. This local mode is a separate advanced path, not the default
 hosted flow.
 
 If a Plans tool returns `needs auth`, `Unauthorized`, or `Session terminated`,
-do not keep retrying the tool. Stop and give the user the reconnect step for the
-client they are using: Codex/Codex Desktop should run
-`npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --client codex`
-and start a new Codex session; Claude Code should run `/mcp` and choose
-Authenticate/Reconnect for the plan connector, or run the reconnect command with
-`--client claude-code` and restart Claude. To refresh every local client config
-that already has the Plan entry, use `--client all`, then restart/reload each
-client. Reconnect re-authenticates WITHOUT reinstalling and finds the entry by
-URL regardless of connector name. Never reinstall from scratch just to fix auth.
-Continue once the connector is available.
+do not keep retrying the tool. In Hermes, verify the profile-local MCP entry and
+reload it:
+
+```bash
+hermes mcp list
+hermes mcp test plan
+```
+
+If the server is missing, add it with:
+
+```bash
+hermes mcp add plan --url https://plan.agent-native.com/_agent-native/mcp --auth oauth
+```
+
+Then run `/reload-mcp` or start a fresh session. Never reinstall skills from
+scratch just to fix connector auth. Continue once the connector is available.
 
 Hosted default: connect `https://plan.agent-native.com/_agent-native/mcp`. Do
 not put shared secrets in skill files.
